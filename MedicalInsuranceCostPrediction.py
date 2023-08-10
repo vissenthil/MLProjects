@@ -8,6 +8,7 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn import metrics
 from sklearn.linear_model import LinearRegression
+import joblib
 
 Data = pd.read_csv('D:\\python\\MLProjects\\Medical_cost_prediction\\MedicalInsuranceCostPrediction\\insurance.csv')
 
@@ -117,7 +118,7 @@ r2_square_test = metrics.r2_score(y_test,y_predict_test)
 
 print(f'R Squre value for Train data is:{r2_square_train}')
 print(f'R Squre value for test data is:{r2_square_test}')
-
+joblib.dump(Lreg,'LR_Ins_Cost_prediction')
 # Building the new prediction for new data set
 # Building predictive system
 new_data = (19,1,27.900,0,1,1) # charges should be equal to = 16884.92400
